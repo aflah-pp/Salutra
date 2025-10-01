@@ -1,0 +1,273 @@
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+body {
+ font-family: 'Bricolage Grotesque', Arial, sans-serif;
+ height: 100%;
+ overflow: hidden;
+ opacity: 0;
+ animation: bgReveal 0.5s ease-in forwards;
+ background: linear-gradient(
+  180deg,
+  rgba(114, 186, 237, 1) 0%,
+  rgba(180, 216, 237, 1) 52%,
+  rgba(68, 129, 168, 1) 100%
+ );
+}
+
+.page-wrapper {
+ min-height: 100vh;
+ display: flex;
+ flex-direction: column;
+}
+
+.navbar {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ backdrop-filter: blur(20px);
+ background: rgba(255, 255, 255);
+ border-radius: 16px;
+ padding: 5px 10px;
+ width: 90%;
+ margin: 25px auto;
+ box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+ transition: all 0.3s ease-in-out;
+ position: sticky;
+ top: 0;
+ z-index: 10;
+ opacity: 0;
+ transform: translateY(0);
+ animation: slideDown 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+ animation-delay: 0.4s;
+}
+
+.nav-logo {
+ border-radius: 12px;
+ padding: 0.6rem 1rem;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ height: 58px;
+}
+
+.nav-logo left {
+ width: 141px;
+ height: 33px;
+}
+.nav-logo img {
+ width: auto;
+ object-fit: contain;
+ transition: transform 0.25s ease;
+ display: block;
+}
+
+.navbar .right a {
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ text-decoration: none;
+ color: black;
+ font-size: 0.85rem;
+}
+
+.nav-logo img:hover {
+ transform: scale(1.05);
+}
+
+.logoTalrop {
+ height: 2.5rem;
+ width: auto;
+ max-width: 100px;
+ object-fit: contain;
+}
+
+.main-content {
+ flex: 1 1 0%;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ box-sizing: border-box;
+ text-align: center;
+ max-width: 1200px;
+ margin: auto;
+ margin-bottom: 6rem;
+}
+
+.main-image {
+ margin-bottom: 2rem;
+}
+
+.main-image img {
+ max-width: 240px;
+ width: 100%;
+ height: auto;
+ margin: 0px;
+ padding: 0px;
+ box-sizing: border-box;
+ opacity: 0; /* Base state for animation */
+ animation: popUp 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+ animation-delay: 0.4s;
+}
+
+.description {
+ max-width: 42em;
+}
+
+.description p {
+ font-size: 16px;
+ color: rgb(68, 68, 68);
+ line-height: 1.5em;
+ padding: 0px;
+ box-sizing: border-box;
+ opacity: 0; /* Base state for animation */
+ animation: popUp 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+ animation-delay: 0.4s;
+}
+
+.launch-heading {
+ font-family: 'Anek Malayalam';
+ font-size: 81px;
+ font-weight: 700;
+ line-height: 1.2;
+ margin-top: 10px;
+ opacity: 0; /* Base state for animation */
+ animation: popUp 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+ animation-delay: 0.4s;
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+
+/* ✅ Tablets: iPad / mid screens (max-width: 1024px and min-width: 600px) */
+@media (max-width: 1024px) and (min-width: 600px) {
+ .navbar {
+  margin: 25px;
+  padding: 0.6rem 1rem;
+ }
+ .nav-logo {
+  height: 52px;
+  padding: 0.4rem 0.8rem;
+ }
+ .nav-logo img {
+  max-height: 2rem; /* Adjusted for tablet */
+ }
+ .logoTalrop {
+  max-width: 90px;
+ }
+ .main-content {
+  margin-top: 2.5rem;
+  padding: 0 1.5rem 5rem;
+ }
+ .main-image img {
+  max-width: 220px;
+ }
+ .description p {
+  font-size: 1.05rem;
+  line-height: 1.45;
+ }
+ .launch-heading {
+  font-size: clamp(60px, 5vw, 3.5rem);
+ }
+}
+
+/* ✅ Large Mobiles: 600px–390px */
+@media (max-width: 600px) and (min-width: 391px) {
+ .navbar {
+  margin: 18px;
+  padding: 0.5rem 1rem;
+ }
+ .nav-logo {
+  height: 48px;
+ }
+ .nav-logo img {
+  max-height: 1.8rem; /* Consistent smaller size */
+ }
+ .logoTalrop {
+  max-width: 80px;
+ }
+ .main-image img {
+  max-width: 200px;
+ }
+ .description p {
+  font-size: 1rem;
+  line-height: 1.4em;
+ }
+ .launch-heading {
+  font-size: clamp(40px, 8vw, 3rem);
+  margin-top: 1.2rem;
+ }
+}
+
+/* ✅ Small Mobiles: below 390px */
+@media (max-width: 390px) {
+ .navbar {
+  margin: 14px;
+  padding: 0.5rem 0.8rem;
+ }
+ .nav-logo {
+  height: 44px;
+  padding: 0.3rem 0.6rem;
+ }
+ .nav-logo img {
+  max-height: 1.5rem;
+  width: auto;
+ }
+
+ .navbar .right a {
+  gap: 5px;
+  font-size: 0.5rem;
+ }
+
+ .logoTalrop {
+  max-height: 2rem;
+  max-width: 70px;
+ }
+ .main-image img {
+  max-width: 220px;
+  margin: 1.2em auto;
+ }
+ .description p {
+  font-size: 0.85rem;
+  line-height: 1.3em;
+  margin-bottom: 12px;
+ }
+ .launch-heading {
+  font-size: 28px;
+  margin-top: 1rem;
+ }
+}
+
+/* -------------------- ANIMATIONS -------------------- */
+@keyframes slideDown {
+ from {
+  opacity: 0;
+  transform: translateY(-60px);
+ }
+ to {
+  opacity: 1;
+  transform: translateY(0);
+ }
+}
+
+@keyframes popUp {
+ from {
+  opacity: 0;
+  transform: scale(0.7);
+ }
+ to {
+  opacity: 1;
+  transform: scale(1);
+ }
+}
+
+@keyframes bgReveal {
+ from {
+  opacity: 0;
+ }
+ to {
+  opacity: 1;
+ }
+}
